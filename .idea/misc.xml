@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/lakshit/Downloads/appd_task_codingweek-main/app/src/main/res/layout/fragment_list.xml" value="0.1" />
+        <entry key="..\:/Users/lakshit/Downloads/appd_task_codingweek-main/app/src/main/res/layout/fragment_list_adapter.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/lakshit/Downloads/appd_task_codingweek-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.137" />
         <entry key="..\:/coding_week/resourses_and_tasks/app dev/diary/app/src/main/res/drawable/rounded_2.xml" value="0.136" />
         <entry key="..\:/coding_week/resourses_and_tasks/app dev/diary/app/src/main/res/drawable/rounded_corner.xml" value="0.137" />
         <entry key="..\:/coding_week/resourses_and_tasks/app dev/diary/app/src/main/res/layout/activity_main.xml" value="0.2604166666666667" />
