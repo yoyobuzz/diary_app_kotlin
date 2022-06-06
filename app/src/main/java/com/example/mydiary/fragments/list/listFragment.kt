@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -37,7 +36,7 @@ class listFragment : Fragment() {
 
 
 
-        view.findViewById<ImageView>(R.id.addNewEntry).setOnClickListener{
+        view.findViewById<FloatingActionButton>(R.id.addNewEntry).setOnClickListener{
             findNavController().navigate(R.id.action_listFragment_to_addEntry)
         }
         return view

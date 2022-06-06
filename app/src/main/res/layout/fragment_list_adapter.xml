@@ -8,7 +8,7 @@
     android:background="@color/darkBlack"
     android:orientation="vertical"
     android:paddingVertical="5dp"
-    android:paddingHorizontal="10dp">
+    android:paddingHorizontal="20dp">
     <!--    tools:context=".listAdapter"-->
     <!-- TODO: Update blank fragment layout -->
 
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/rounded_2"
-            android:padding="10dp">
+            android:padding="15dp">
 
             <TextView
                 android:id="@+id/day_entry"
