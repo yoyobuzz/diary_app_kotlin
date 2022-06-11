@@ -19,12 +19,12 @@ class DiaryViewModel(application: Application): AndroidViewModel(application) {
         repository= DiaryRepository(dao)
         readAllData = repository.getAlldata
     }
-//    fun deleteDiary(diary: Diary)=viewModelScope.launch(Dispatchers.IO){
-//        repository.delete(diary)
-//    }
-//    fun updateDiary(diary: Diary)=viewModelScope.launch(Dispatchers.IO){
-//        repository.update(diary)
-//    }
+    fun deleteDiary(diary: Diary)=viewModelScope.launch(Dispatchers.IO){
+        repository.delete(diary)
+    }
+    fun updateDiary(diary: Diary)=viewModelScope.launch(Dispatchers.IO){
+        repository.update(diary)
+    }
     fun addDiary(diary: Diary)=viewModelScope.launch(Dispatchers.IO){
         repository.addDiary(diary)
     }

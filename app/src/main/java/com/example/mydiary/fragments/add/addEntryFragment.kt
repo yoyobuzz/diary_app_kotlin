@@ -18,7 +18,7 @@ import java.util.*
 class AddEntryFragment : Fragment() {
 
     private lateinit var mDiaryViewModel: DiaryViewModel
-    var selectEmoji=1
+    var selectEmoji=0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -85,7 +85,16 @@ class AddEntryFragment : Fragment() {
         val diary_heading= view?.findViewById<EditText>(R.id.heading)?.text.toString()
         val diary_description= view?.findViewById<EditText>(R.id.body)?.text.toString()
 
-        if(inputCheck(diary_description) && inputCheck(diary_heading)){
+        if(inputCheck(diary_heading)){
+            Toast.makeText(requireContext(),"Give a Title!",Toast.LENGTH_SHORT).show()
+        }
+        else if(inputCheck(diary_description)){
+            Toast.makeText(requireContext(),"Fill the Diary!",Toast.LENGTH_SHORT).show()
+        }
+        else if(selectEmoji==0){
+            Toast.makeText(requireContext(),"Select an emoji!",Toast.LENGTH_SHORT).show()
+        }
+        else{
             //Create Diary Object and pass into it
             val diary= Diary(0,date_today,day_today,diary_heading,diary_description,selectEmoji)
 
@@ -95,9 +104,7 @@ class AddEntryFragment : Fragment() {
 
             findNavController().navigate(R.id.action_addEntry_to_listFragment)
         }
-        else{
-            Toast.makeText(requireContext(),"Can't be Empty!",Toast.LENGTH_LONG).show()
-        }
+
     }
 
     private fun getdate(): String {
@@ -115,6 +122,6 @@ class AddEntryFragment : Fragment() {
     }
 
     private fun inputCheck(string: String):Boolean{
-        return !(TextUtils.isEmpty(string))
+        return (TextUtils.isEmpty(string))
     }
 }

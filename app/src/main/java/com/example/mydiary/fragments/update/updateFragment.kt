@@ -1,152 +1,159 @@
 package com.example.mydiary.fragments.update
 
-//import android.app.AlertDialog
-//import android.content.Context
-//import android.os.Bundle
-//import android.text.TextUtils
-//import androidx.fragment.app.Fragment
-//import android.view.LayoutInflater
-//import android.view.View
-//import android.view.ViewGroup
-//import android.widget.*
-//import androidx.lifecycle.ViewModelProvider
-//import androidx.navigation.fragment.findNavController
-//import androidx.navigation.fragment.navArgs
-//import com.example.myapplication.R
-//import com.example.myapplication.data.Diary
-//import com.example.myapplication.data.DiaryViewModel
-//import com.example.mydiary.R
-//import com.example.mydiary.viewmodel.DiaryViewModel
-//
-//class updateFragment : Fragment() {
-//    private val args by navArgs<updateFragmentArgs>()
-//    var updatedemojival=1
-//    private lateinit var mDiaryViewModel: DiaryViewModel
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        // Inflate the layout for this fragment
-//        val view= inflater.inflate(R.layout.fragment_update2, container, false)
-//
-//        mDiaryViewModel=ViewModelProvider(this).get(DiaryViewModel::class.java)
-//
-//
-//        view.findViewById<EditText>(R.id.entry_edit).setText(args.currentDiary.desc)
-//        //TODO:EMOJI
-//        val happy_mood=view.findViewById<ImageView>(R.id.happy_edit)
-//        val relieved_mood=view.findViewById<ImageView>(R.id.relieved_edit)
-//        val angry_mood=view.findViewById<ImageView>(R.id.angry_edit)
-//        val cry_mood=view.findViewById<ImageView>(R.id.cry_edit)
-//        when (args.currentDiary.emoji) {
-//            1 -> {
-//                happy_mood.setImageResource(R.drawable.ic_happy_selected)
-//                relieved_mood.setImageResource(R.drawable.ic_relieved)
-//                angry_mood.setImageResource(R.drawable.ic_angry)
-//                cry_mood.setImageResource(R.drawable.ic_cry)
-//                updatedemojival=1
-//            }
-//            2 -> {
-//                happy_mood.setImageResource(R.drawable.ic_happy)
-//                relieved_mood.setImageResource(R.drawable.ic_relieved_selected)
-//                angry_mood.setImageResource(R.drawable.ic_angry)
-//                cry_mood.setImageResource(R.drawable.ic_cry)
-//                updatedemojival=2
-//            }
-//            3 -> {
-//                happy_mood.setImageResource(R.drawable.ic_happy)
-//                relieved_mood.setImageResource(R.drawable.ic_relieved)
-//                angry_mood.setImageResource(R.drawable.ic_angry_selected)
-//                cry_mood.setImageResource(R.drawable.ic_cry)
-//                updatedemojival=3
-//            }
-//            4 -> {
-//                happy_mood.setImageResource(R.drawable.ic_happy)
-//                relieved_mood.setImageResource(R.drawable.ic_relieved)
-//                angry_mood.setImageResource(R.drawable.ic_angry)
-//                cry_mood.setImageResource(R.drawable.ic_cry_selected)
-//                updatedemojival=4
-//            }
-//        }
-//
-//        happy_mood.setOnClickListener{
-//            updatedemojival=1
-//            happy_mood.setImageResource(R.drawable.ic_happy_selected)
-//            relieved_mood.setImageResource(R.drawable.ic_relieved)
-//            angry_mood.setImageResource(R.drawable.ic_angry)
-//            cry_mood.setImageResource(R.drawable.ic_cry)
-//        }
-//
-//        relieved_mood.setOnClickListener{
-//            updatedemojival=2
-//            happy_mood.setImageResource(R.drawable.ic_happy)
-//            relieved_mood.setImageResource(R.drawable.ic_relieved_selected)
-//            angry_mood.setImageResource(R.drawable.ic_angry)
-//            cry_mood.setImageResource(R.drawable.ic_cry)
-//        }
-//
-//        angry_mood.setOnClickListener{
-//            updatedemojival=3
-//            happy_mood.setImageResource(R.drawable.ic_happy)
-//            relieved_mood.setImageResource(R.drawable.ic_relieved)
-//            angry_mood.setImageResource(R.drawable.ic_angry_selected)
-//            cry_mood.setImageResource(R.drawable.ic_cry)
-//        }
-//
-//        cry_mood.setOnClickListener{
-//            updatedemojival=4
-//            happy_mood.setImageResource(R.drawable.ic_happy)
-//            relieved_mood.setImageResource(R.drawable.ic_relieved)
-//            angry_mood.setImageResource(R.drawable.ic_angry)
-//            cry_mood.setImageResource(R.drawable.ic_cry_selected)
-//        }
-//
-//        view.findViewById<Button>(R.id.submit_edit).setOnClickListener{
-//            updateItems()
-//        }
-//
-//        view.findViewById<ImageButton>(R.id.delete_button).setOnClickListener{
-//            deleteDiary()
-//        }
-//
-//        return view
-//    }
-//
-//    private fun deleteDiary() {
-//        val builder= AlertDialog.Builder(requireContext())
-//        builder.setPositiveButton("Yes"){
-//                _,_->
-//            mDiaryViewModel.deleteDiary(args.currentDiary)
-//            Toast.makeText(requireContext(),"Your feelings are deleted",Toast.LENGTH_SHORT).show()
-//            findNavController().navigate(R.id.action_updateFragment_to_diary_Fragment)
-//        }
-//        builder.setNegativeButton("No"){
-//                _,_->
-//        }
-//        builder.setTitle("Deleter")
-//        builder.setMessage("Are you sure you want to delete your feelings?")
-//        builder.create().show()
-//    }
-//
-//    private fun updateItems(){
-//        val descri= view?.findViewById<EditText>(R.id.entry_edit)?.text.toString()
-//        //As of now Dates cant be edited
-//        //val date="05/06/2022"
-//        val emoji_selected=updatedemojival
-//        if(inputCheck(descri)){
-//            val updatedDiary= Diary(args.currentDiary.id,args.currentDiary.date,descri,emoji_selected)
-//            mDiaryViewModel.updateDiary(updatedDiary)
-//            //Navigation to back
-//            findNavController().navigate(R.id.action_updateFragment_to_diary_Fragment)
-//            Toast.makeText(requireContext(),"Updated your feelings!",Toast.LENGTH_SHORT).show()
-//        }
-//        else{
-//            Toast.makeText(requireContext(),"Ah huh feelings can't be blank",Toast.LENGTH_SHORT).show()
-//        }
-//    }
-//
-//    private fun inputCheck(diary_desc:String):Boolean{
-//        return !(TextUtils.isEmpty(diary_desc))
-//    }
-//
-//}
+import android.os.Bundle
+import android.text.TextUtils
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.room.Update
+import com.example.myapplication.data.Diary
+import com.example.mydiary.R
+import com.example.mydiary.viewmodel.DiaryViewModel
+import com.google.android.material.textview.MaterialTextView
+import java.util.logging.Logger.global
+
+class updateFragment : Fragment() {
+    private val args by navArgs<viewFragmentArgs>()
+
+    private lateinit var mDiaryViewModel: DiaryViewModel
+    private var updateEmoji = 1
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_update, container, false)
+
+        val emoji = args.currentItem.emoji
+        updateEmoji = args.currentItem.emoji
+
+        view?.findViewById<EditText>(R.id.heading_edit)?.setText(args.currentItem.title)
+        view?.findViewById<EditText>(R.id.body_edit)?.setText(args.currentItem.body)
+        view?.findViewById<EditText>(R.id.day)?.setText(args.currentItem.day)
+        view?.findViewById<EditText>(R.id.date)?.setText(args.currentItem.date)
+
+        when(emoji) {
+            1 -> {
+                view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy)
+                view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush_blurred)
+                view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry_blurred)
+                view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad_blurred)
+                view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded_blurred)
+            }
+            2 -> {
+                view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy_blurred)
+                view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush)
+                view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry_blurred)
+                view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad_blurred)
+                view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded_blurred)
+            }
+            3 -> {
+                view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy_blurred)
+                view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush_blurred)
+                view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry)
+                view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad_blurred)
+                view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded_blurred)
+            }
+            4 -> {
+                view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy_blurred)
+                view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush_blurred)
+                view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry_blurred)
+                view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad)
+                view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded_blurred)
+            }
+            5 -> {
+                view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy_blurred)
+                view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush_blurred)
+                view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry_blurred)
+                view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad_blurred)
+                view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded)
+            }
+        }
+
+        view.findViewById<ImageView>(R.id.happy_edit).setOnClickListener{
+            updateEmoji=1
+            view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy)
+            view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush_blurred)
+            view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry_blurred)
+            view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad_blurred)
+            view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded_blurred)
+        }
+        view.findViewById<ImageView>(R.id.blush_edit).setOnClickListener{
+            updateEmoji=2
+            view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy_blurred)
+            view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush)
+            view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry_blurred)
+            view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad_blurred)
+            view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded_blurred)
+        }
+        view.findViewById<ImageView>(R.id.angry_edit).setOnClickListener{
+            updateEmoji=3
+            view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy_blurred)
+            view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush_blurred)
+            view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry)
+            view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad_blurred)
+            view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded_blurred)
+        }
+        view.findViewById<ImageView>(R.id.sad_edit).setOnClickListener{
+            updateEmoji=4
+            view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy_blurred)
+            view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush_blurred)
+            view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry_blurred)
+            view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad)
+            view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded_blurred)
+        }
+        view.findViewById<ImageView>(R.id.ded_edit).setOnClickListener{
+            updateEmoji=5
+            view.findViewById<ImageView>(R.id.happy_edit).setImageResource(R.drawable.ic_happy_blurred)
+            view.findViewById<ImageView>(R.id.blush_edit).setImageResource(R.drawable.ic_blush_blurred)
+            view.findViewById<ImageView>(R.id.angry_edit).setImageResource(R.drawable.ic_angry_blurred)
+            view.findViewById<ImageView>(R.id.sad_edit).setImageResource(R.drawable.ic_sad_blurred)
+            view.findViewById<ImageView>(R.id.ded_edit).setImageResource(R.drawable.ic_ded)
+        }
+
+        view.findViewById<ImageView>(R.id.saveChanges).setOnClickListener{
+            updateEntry()
+        }
+
+        return view
+    }
+
+    private fun updateEntry(){
+        mDiaryViewModel= ViewModelProvider(this).get(DiaryViewModel::class.java)
+        val updateBody= view?.findViewById<EditText>(R.id.body_edit)?.text.toString()
+        val updateTitle= view?.findViewById<EditText>(R.id.heading_edit)?.text.toString()
+        val updateDay= view?.findViewById<EditText>(R.id.day)?.text.toString()
+        val updateDate= view?.findViewById<EditText>(R.id.date)?.text.toString()
+
+        if (inputCheck(updateDay)){
+            Toast.makeText(requireContext(),"Day can't be empty!",Toast.LENGTH_SHORT).show()
+        }
+        else if (inputCheck(updateDate)){
+            Toast.makeText(requireContext(),"Date can't be empty!",Toast.LENGTH_SHORT).show()
+        }
+        else if (inputCheck(updateTitle)){
+            Toast.makeText(requireContext(),"Title can't be empty!",Toast.LENGTH_SHORT).show()
+        }
+        else if (inputCheck(updateBody)){
+            Toast.makeText(requireContext(),"Diary can't be empty!",Toast.LENGTH_SHORT).show()
+        }
+
+        else{
+            val updatedDiary= Diary(args.currentItem.id,updateDate,updateDay,updateTitle,updateBody,updateEmoji)
+            mDiaryViewModel.updateDiary(updatedDiary)
+            //Navigation to back
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+            Toast.makeText(requireContext(),"Diary Updated!",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun inputCheck(string: String):Boolean{
+        return (TextUtils.isEmpty(string))
+    }
+}

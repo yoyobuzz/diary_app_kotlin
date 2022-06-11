@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-//@Parcelize
+@Parcelize
 @Entity(tableName = "diaryTable")
 data class Diary(
     @PrimaryKey(autoGenerate = true)
@@ -15,6 +15,7 @@ data class Diary(
     val day:String,
     val title:String,
     val body:String,
-    val emoji:Int)
-//):Parcelable
+    val emoji:Int
+) : Parcelable
+
 // TODO: parcelize check 

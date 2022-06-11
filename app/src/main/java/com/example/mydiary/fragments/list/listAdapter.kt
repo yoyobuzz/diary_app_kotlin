@@ -4,10 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mydiary.R
-
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import android.annotation.SuppressLint
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.data.Diary
 
@@ -61,12 +66,11 @@ class listAdapter :
                 holder.emoji.findViewById<ImageView>(R.id.emoji_entry).setImageResource(R.drawable.ic_ded)
             }
         }
-        //To Update and Delete
-//        holder.itemView.findViewById<ImageView>(R.id.deleteoredit).setOnClickListener{
-//            val action=Diary_FragmentDirections.actionDiaryFragmentToUpdateFragment(currentitem)
-//            holder.itemView.findNavController().navigate(action)
-//        }
+//        To View , Delete and Update
 
+        holder.itemView.findViewById<CardView>(R.id.viewCardEntry).setOnClickListener{
+            holder.itemView.findNavController().navigate(listFragmentDirections.actionListFragmentToViewFragment(currentItem))
+        }
 
     }
 

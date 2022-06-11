@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".fragments.update.updateFragment">
 
-    <TextView
+    <EditText
         android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,9 +17,10 @@
         android:textColorHint="#ff4B44DF"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/date"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"/>
 
-    <TextView
+    <EditText
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +29,8 @@
         android:textColor="@color/darkWhite"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/heading_edit"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@null"/>
 
     <ImageView
         android:id="@+id/saveChanges"
@@ -37,8 +39,8 @@
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="100dp"
         android:clickable="true"
-        android:focusable="true"
         android:elevation="0dp"
+        android:focusable="true"
         android:outlineProvider="none"
         android:src="@drawable/ic_baseline_check_24"
         app:backgroundTint="@android:color/transparent"
@@ -47,21 +49,20 @@
         app:layout_constraintBottom_toTopOf="@+id/heading_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="45dp"
-        app:rippleColor="@color/darkBlack" />
+        app:rippleColor="@color/darkBlack"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
 
     <EditText
         android:id="@+id/heading_edit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="51dp"
         android:layout_marginTop="175dp"
         android:background="@drawable/rounded_corner"
-        android:editable="true"
-        android:hint="Title"
-        android:textColorHint="@color/darkWhite"
         android:padding="10dp"
         android:paddingStart="23dp"
         android:paddingEnd="23dp"
         android:textColor="@color/darkWhite"
+        android:textColorHint="@color/darkWhite"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -76,10 +77,7 @@
         android:layout_marginBottom="104dp"
         android:autofillHints=""
         android:background="@color/lightBlack"
-        android:editable="true"
-        android:focusable="true"
         android:gravity="top"
-        android:hint="Dear Diary,"
         android:padding="10dp"
         android:textColorHint="@color/darkWhite"
         android:textColor="@color/darkWhite"
@@ -155,24 +153,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_angry" />
-
-    <ImageView
-        android:id="@+id/deleteButton"
-        android:layout_width="40dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="100dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:elevation="0dp"
-        android:outlineProvider="none"
-        android:src="@drawable/ic_baseline_delete_24"
-        app:backgroundTint="@android:color/transparent"
-        app:fabSize="mini"
-        app:itemIconTint="@color/purpleUse"
-        app:layout_constraintBottom_toTopOf="@+id/heading_edit"
-        app:layout_constraintEnd_toStartOf="@+id/saveChanges"
-        app:maxImageSize="45dp"
-        app:rippleColor="@color/darkBlack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

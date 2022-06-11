@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/darkBlack"
     android:orientation="vertical"
-    tools:context=".fragments.add.AddEntryFragment">
+    tools:context=".fragments.update.viewFragment">
 
     <TextView
         android:id="@+id/day"
@@ -27,39 +27,38 @@
         android:layout_marginBottom="64dp"
         android:textColor="@color/darkWhite"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/heading"
+        app:layout_constraintBottom_toTopOf="@+id/heading_edit"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/addNewEntry"
+        android:id="@+id/editEntry"
         android:layout_width="40dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="100dp"
         android:clickable="true"
         android:elevation="0dp"
-        android:focusable="auto"
+        android:focusable="true"
         android:outlineProvider="none"
-        android:src="@drawable/ic_baseline_check_24"
+        android:src="@drawable/ic_baseline_edit_24"
         app:backgroundTint="@android:color/transparent"
         app:fabSize="mini"
         app:itemIconTint="@color/purpleUse"
-        app:layout_constraintBottom_toTopOf="@+id/heading"
+        app:layout_constraintBottom_toTopOf="@+id/heading_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="45dp"
-        app:rippleColor="@color/darkBlack" />
+        app:rippleColor="@color/darkBlack"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
 
-    <EditText
-        android:id="@+id/heading"
+    <TextView
+        android:id="@+id/heading_edit"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginTop="175dp"
         android:background="@drawable/rounded_corner"
-        android:editable="true"
-        android:hint="Title"
-        android:maxLines="1"
         android:padding="10dp"
         android:paddingStart="23dp"
+        android:paddingEnd="23dp"
         android:textColor="@color/darkWhite"
         android:textColorHint="@color/darkWhite"
         android:textSize="26sp"
@@ -68,23 +67,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/body"
+    <TextView
+        android:id="@+id/body_edit"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="225dp"
         android:layout_marginBottom="104dp"
         android:autofillHints=""
         android:background="@color/lightBlack"
-        android:editable="true"
         android:focusable="true"
         android:gravity="top"
-        android:hint="Dear Diary,"
         android:padding="10dp"
         android:textColorHint="@color/darkWhite"
         android:textColor="@color/darkWhite"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/ded"
+        app:layout_constraintBottom_toTopOf="@+id/ded_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,63 +89,87 @@
         app:layout_constraintVertical_bias="0.097" />
 
     <ImageView
-        android:id="@+id/ded"
+        android:id="@+id/ded_edit"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:focusable="true"
         android:hapticFeedbackEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sad"
+        app:layout_constraintStart_toEndOf="@+id/sad_edit"
         app:srcCompat="@drawable/ic_ded" />
 
     <ImageView
-        android:id="@+id/sad"
+        android:id="@+id/sad_edit"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:focusable="true"
         android:hapticFeedbackEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/angry"
+        app:layout_constraintStart_toEndOf="@+id/angry_edit"
         app:srcCompat="@drawable/ic_sad" />
 
     <ImageView
-        android:id="@+id/happy"
+        android:id="@+id/happy_edit"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:focusable="true"
         android:hapticFeedbackEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/blush"
+        app:layout_constraintEnd_toStartOf="@+id/blush_edit"
         app:srcCompat="@drawable/ic_happy" />
 
     <ImageView
-        android:id="@+id/blush"
+        android:id="@+id/blush_edit"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:focusable="true"
         android:hapticFeedbackEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/angry"
+        app:layout_constraintEnd_toStartOf="@+id/angry_edit"
         app:srcCompat="@drawable/ic_blush" />
 
     <ImageView
-        android:id="@+id/angry"
+        android:id="@+id/angry_edit"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
+        android:focusable="true"
         android:hapticFeedbackEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_angry" />
+
+    <ImageView
+        android:id="@+id/deleteButton"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="100dp"
+        android:clickable="true"
+        android:elevation="0dp"
+        android:focusable="true"
+        android:outlineProvider="none"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:backgroundTint="@android:color/transparent"
+        app:fabSize="mini"
+        app:itemIconTint="@color/purpleUse"
+        app:layout_constraintBottom_toTopOf="@+id/heading_edit"
+        app:layout_constraintEnd_toStartOf="@+id/editEntry"
+        app:maxImageSize="45dp"
+        app:rippleColor="@color/darkBlack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

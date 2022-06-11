@@ -10,11 +10,11 @@ interface DiaryDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun adddiary(diary: Diary)
 
-//    @Update
-//    suspend fun update(diary: Diary)
-//
-//    @Delete
-//    suspend fun delete(diary: Diary)
+    @Update
+    suspend fun update(diary: Diary)
+
+    @Delete
+    suspend fun delete(diary: Diary)
 
     @Query("Select * from diaryTable order by id DESC")
     fun readalldata(): LiveData<List<Diary>>
