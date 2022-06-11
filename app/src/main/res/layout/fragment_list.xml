@@ -10,7 +10,6 @@
         android:id="@+id/recycler_view_items"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="58dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -35,18 +34,6 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:maxImageSize="30dp"-->
 <!--        tools:ignore="ContentDescription,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />-->
-
-    <TextView
-        android:id="@+id/TitileMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="My Diary"
-        android:textColor="@color/purpleUse"
-        android:textSize="28sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/addNewEntry"
