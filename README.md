@@ -48,6 +48,11 @@ The app uses **Room Database** to store entries locally. Each diary entry consis
 - **Timestamp**: Date/time of the entry  
 
 ---
+## Screenshots
+
+![Screenshots](https://github.com/yoyobuzz/diary_app_kotlin/blob/main/screenshots.png)
+
+---
 
 ## Usage  
 
